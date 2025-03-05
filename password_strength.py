@@ -84,7 +84,7 @@ if 'generated_password' not in st.session_state:
     st.session_state.generated_password = ''
 
 # Password Input Section
-input_col, generate_col = st.columns([3, 1])
+input_col, button_col = st.columns([3, 1])
 with input_col:
     password = st.text_input("Enter your password:", 
                            type="password",
@@ -93,11 +93,16 @@ with input_col:
                            placeholder="Type or generate a password...",
                            label_visibility="collapsed")
 
-with generate_col:
-    if st.button("✨ Generate Strong Password", use_container_width=True):
+with button_col:
+    # Vertical layout for buttons
+    if st.button("✨ Generate Password", use_container_width=True):
         generated_pw = generate_strong_password()
         st.session_state.generated_password = generated_pw
         st.rerun()
+    
+    if st.button("↵ Check Password", type="primary", use_container_width=True):
+        # This button forces a check while keeping existing functionality
+        pass  # No additional logic needed - check happens automatically
 
 if password:
     score, feedback = check_password_strength(password)
