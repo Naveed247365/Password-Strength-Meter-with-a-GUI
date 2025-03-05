@@ -186,6 +186,6 @@ st.markdown("""
 }
 </style>
 <div class="footer">
-    Made with ❤️ by Muhammad Naveed | 🔒 Keep your data safe
+    Made with ❤️ by Security Pro | 🔒 Keep your data safe
 </div>
 """, unsafe_allow_html=True)
